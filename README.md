@@ -17,5 +17,6 @@
 5) [John Alex Espaldon](https://github.com/espaldonjandiza-hub/John-Alex-?fbclid=IwY2xjawSEgR5leHRuA2FlbQIxMABicmlkETFhQlV5dDVkWjlqWGV1RXBac3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHmMHgtDYuZf5hRDyY05WmpP838CblQNjS8oNm8Oge6jpb4oi2x5IAUkJAZ22_aem_KubYybKRpoBaQFbpYZl-5A)
  6) [Haziel Ann Selose](IwY2xjawSEgU1leHRuA2FlbQIxMABicmlkETFhQlV5dDVkWjlqWGV1RXBac3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHmMHgtDYuZf5hRDyY05WmpP838CblQNjS8oNm8Oge6jpb4oi2x5IAUkJAZ22_aem_KubYybKRpoBaQFbpYZl)
 
-
+### Section: IT1C [BSIT]
+- 2nd semester
 
