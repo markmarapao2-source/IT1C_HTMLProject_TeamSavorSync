@@ -1,0 +1,98 @@
+==================================================
+FLOW 1: LANDING PAGE
+==================================================
+
+START PROGRAM
+
+DISPLAY Landing Page
+SHOW website logo "SavorScync"
+SHOW welcome message
+SHOW "Get Started" button
+
+WHEN user clicks "Get Started" button
+NAVIGATE to "Log-in.html" page
+END WHEN
+
+
+==================================================
+FLOW 2: LOGIN / REGISTER PAGE
+==================================================
+
+DISPLAY Login & Register Page
+SHOW logo, title, and two tabs: [Login] [Create Account]
+
+--------------------------
+CASE A: User wants to Register
+--------------------------
+WHEN user clicks "Create Account" tab
+SWITCH view to Registration Form
+END WHEN
+
+WHEN user submits Registration Form
+READ input: Full Name, Email, Password, Confirm Password
+
+IF any field is empty THEN
+SHOW error: "Please fill in all fields."
+ELSE IF Password ≠ Confirm Password THEN
+SHOW error: "Passwords do not match."
+ELSE IF Email already exists in saved data THEN
+SHOW error: "An account with this email already exists."
+ELSE
+SAVE new user data to browser storage
+SHOW success message: "Account created successfully!"
+SHOW button: "Go to Login"
+END IF
+END WHEN
+
+WHEN user clicks "Go to Login" button
+SWITCH view to Login Form
+END WHEN
+
+
+--------------------------
+CASE B: User wants to Login
+--------------------------
+WHEN user clicks "Login" tab
+SWITCH view to Login Form
+END WHEN
+
+WHEN user submits Login Form
+READ input: Email, Password
+
+IF any field is empty THEN
+SHOW error: "Please fill in all fields."
+ELSE
+SEARCH saved user data for matching Email AND Password
+IF match found THEN
+SHOW welcome message: "Welcome back, [User Name]!"
+SHOW link/button: "Go to Main Site"
+ELSE
+SHOW error: "Invalid email or password."
+END IF
+END IF
+END WHEN
+
+==================================================
+FLOW 3: MAIN SITE (Food Ordering Page)
+==================================================
+
+WHEN user clicks "Go to Main Site" link/button
+NAVIGATE to main website page (Food Ordering System)
+
+DISPLAY Main Site
+SHOW header with navigation: Menu, Cart, Order, Feedback, Contact
+SHOW food menu list with items, prices and "Add to Cart" buttons
+SHOW cart section to view selected items and total price
+SHOW order form for delivery details
+SHOW feedback form
+SHOW contact information
+
+ENABLE all functions:
+- Add item to cart
+- Remove item from cart
+- Auto-update cart count and total
+- Submit order and show success
+- Submit feedback and show thank you message
+END WHEN
+
+END PROGRAM
