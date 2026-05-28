@@ -20,3 +20,9 @@
 ### Section: IT1C [BSIT]
 - 2nd semester
 
+  
+#### Reason why we switch using HTML instead of Python Tkinter:
+- Our program environment had errors that it can't define the imports.
+  even the syntacs and overall code is right and in proper order(Organized).
+
+  
