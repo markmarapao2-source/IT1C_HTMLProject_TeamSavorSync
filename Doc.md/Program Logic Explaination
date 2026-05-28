@@ -1,0 +1,273 @@
+ Program Logic Explanation – SavorSync Landing Page
+ What is this code about?
+This is the code for the landing page of a food delivery website called "SavorSync". It’s the first page users see when they visit the site. Its main job is to welcome users, show the brand logo/image, and have a button to take them to the login page. It’s built using HTML for structure, Tailwind CSS for styling and Java for functions.
+________________________________________
+Breakdown of Each Part
+1. Head Section – Settings & Resources
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SavorSync</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+•	<!DOCTYPE html> – Tells the browser this is an HTML5 document.
+•	<html lang="en"> – Sets the language to English.
+•	<meta charset="UTF-8"> – Makes sure all characters (letters, symbols) show correctly.
+•	<meta name="viewport"...> – Makes the page look good on phones, tablets, and computers (responsive design).
+•	<title> – Text shown on the browser tab.
+•	Tailwind CSS link – Brings in the styling tool so we can use ready-made classes like bg-primary, rounded-lg, etc.
+•	Font Awesome link – Allows us to use icons if we need them.
+________________________________________
+2. Tailwind Configuration – Custom Colors & Fonts
+javascript
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                primary: '#E67E22',
+                secondary: '#F39C12',
+                darkOrange: '#D35400',
+                lightOrange: '#FFF3E0',
+            },
+            fontFamily: {
+                sans: ['Arial', 'sans-serif'],
+            },
+        }
+    }
+}
+•	Purpose: I defined my own colors so the website matches the food/orange theme.
+o	primary: Main orange color (#E67E22)
+o	secondary: Lighter orange (#F39C12)
+o	darkOrange: Darker orange for text or hover effects
+o	lightOrange: Very light orange for background
+•	Set default font to Arial, easy to read.
+________________________________________
+3. Custom Utilities – Extra Style Tools
+css
+@layer utilities {
+    .content-auto {
+        content-visibility: auto;
+    }
+    .scroll-smooth {
+        scroll-behavior: smooth;
+    }
+}
+•	.content-auto: Helps the page load faster.
+•	.scroll-smooth: Makes scrolling down or up smooth instead of jumping instantly.
+________________________________________
+4. Body Section – Page Content
+html
+<body class="bg-lightOrange font-sans scroll-smooth w-full h-screen">
+•	bg-lightOrange: Whole page background is light orange.
+•	font-sans: Uses Arial font we set earlier.
+•	scroll-smooth: Enables smooth scrolling.
+•	w-full h-screen: Makes the body take full width and full height of the screen.
+________________________________________
+5. Main Section – Hero Area
+html
+<section class="bg-secondary/20 py-16 px-6">
+    <div class="container mx-auto text-center">
+        <h1 class="text-[clamp(1.5rem,4vw,2.5rem)] font-bold text-darkOrange mb-4">Savor Sync</h1>
+        
+        <img src="burger123.png" alt="Tasty Burger" class="max-w-2xl mx-auto rounded-lg shadow-lg mb-6 w-[160px] h-[160px] object-cover">
+        
+        <p class="text-lg max-w-2xl mx-auto font-bold text-darkOrange mb-4">Go Get Your Food Here!</p>
+        
+        <a href="Log-in.html" class="inline-block mt-100 bg-primary hover:bg-darkOrange text-white font-semibold py-4 px-8 rounded-lg transition-all transform hover:scale-130">
+            Get Started
+        </a>
+    </div>
+</section>
+Step-by-step:
+1.	Section background: bg-secondary/20 → Very light orange shade, soft background.
+2.	Container: Centers all content and keeps it from being too wide.
+3.	Heading (<h1>):
+o	Shows the website name "Savor Sync".
+o	text-[clamp(...)]: Font size automatically adjusts based on screen size (big on PC, small on phone).
+o	font-bold: Makes text thick.
+o	text-darkOrange: Dark orange color.
+4.	Image:
+o	Shows a burger image (burger123.png).
+o	w-[160px] h-[160px]: Fixed size for the image.
+o	object-cover: Makes sure the image fills the space without stretching.
+o	rounded-lg: Slightly rounded corners.
+o	shadow-lg: Soft shadow effect.
+5.	Description Text: Short message inviting users — "Go Get Your Food Here!".
+6.	Button / Link:
+o	href="Log-in.html": Most important part — when clicked, it sends the user to the login/account creation page.
+o	bg-primary: Orange background.
+o	hover:bg-darkOrange: When mouse hovers, color becomes darker orange.
+o	hover:scale-130: When mouse hovers, button gets 30% bigger (zoom effect).
+o	transition-all: Smooth animation for hover effects.
+o	rounded-lg: Rounded corners.
+o	White text, bold font, padding inside to make it look like a real button.
+________________________________________
+
+Overall Flow / Logic Summary
+1.	Page loads → Shows brand name, logo, and welcome message.
+2.	User sees a big "Get Started" button.
+3.	User clicks button → Browser opens Log-in.html page.
+4.	From there, user can create account or login, then go to main site.
+
+
+Toggle Buttons
+•	Two buttons side by side: "Login" and "Create Account".
+•	When the page loads, "Login" is active (orange background, white text), and "Create Account" is inactive (white background, gray text).
+•	Clicking either button switches the active style and shows the correct form below.
+Login Form
+•	Shown by default.
+•	Contains two input fields: Email and Password. Both are required.
+•	A login button styled with orange background; becomes darker orange when hovered.
+•	A hidden red message area to show errors like empty fields or wrong details.
+Register Form
+•	Hidden at first; appears when "Create Account" is clicked.
+•	Has four fields: Full Name, Email, Password, and Confirm Password — all required.
+•	A create account button with same style as login button.
+•	Hidden red message area to show errors like empty fields, mismatched passwords, or duplicate emails.
+Success Message Box
+•	Hidden at first.
+•	Green background with check icon.
+•	Shows a success message after account creation or successful login.
+•	Has a button to go back to login form.
+________________________________________
+Part 3 – JavaScript Logic: How Everything Works
+This part controls all interactions, form switching, data saving, and validation.
+1. Switching Between Forms
+•	When "Login" tab is clicked:
+o	Login form appears, register form hides.
+o	Login tab becomes active style, register tab becomes inactive.
+o	Success message box hides if open.
+•	When "Create Account" tab is clicked:
+o	Register form appears, login form hides.
+o	Register tab becomes active style, login tab becomes inactive.
+o	Success message box hides if open.
+2. Register Function (registerUser())
+This runs when user clicks "Create Account".
+1.	Get values from all input fields and remove extra spaces.
+2.	Check empty fields: if any field is empty, show error message "Please fill in all fields."
+3.	Check password match: if password and confirm password are different, show error "Passwords do not match."
+4.	Check existing email:
+o	Get saved user list from browser storage; if empty, start with empty list.
+o	Check if entered email already exists in the list.
+o	If exists, show error "An account with this email already exists."
+5.	Save new account:
+o	If all checks pass, add new user data (name, email, password) to the list.
+o	Save updated list back to browser storage.
+6.	Show success:
+o	Hide register form, show success message "Your account has been created successfully!"
+3. Login Function (loginUser())
+This runs when user clicks "Login".
+1.	Get values from email and password fields, remove extra spaces.
+2.	Check empty fields: if empty, show error "Please fill in all fields."
+3.	Check credentials:
+o	Get saved user list from browser storage.
+o	Look for a user where email and password both match what was entered.
+4.	Result:
+o	If match found: hide login form, show success message "Welcome back, [Name]! You are now logged in."
+o	If no match: show error "Invalid email or password."
+4. Go to Login Function (goToLogin())
+•	Triggered when user clicks "Go to Login" button inside success message.
+•	Automatically clicks the Login tab to switch back to login form.
+________________________________________
+ Overall Program Flow
+1.	Page loads → Shows login form and login tab active.
+2.	User can either:
+o	Login: Enter email and password → System checks data → If correct, show welcome message.
+o	Register: Switch to create account form → Fill details → System validates input → Save data → Show success.
+3.	All data is stored in the browser’s local storage, so accounts stay saved even if page is closed or refreshed.
+4.	All messages (errors or success) are shown clearly, and forms switch smoothly.
+Header Section
+•	Stays fixed at top when scrolling.
+•	Shows logo icon, website name "SavorScync", and navigation menu:
+o	Menu → goes to food list
+o	Cart → shows items added and number count
+o	Order Now → goes to order form
+o	Feedback → goes to feedback form
+o	Contact → shows contact information
+Hero Section
+•	Short welcome area with soft orange background.
+•	Has "View Menu" button to jump directly to food list.
+•	Button changes color and slightly grows bigger when mouse hovers.
+Menu Section
+•	Displays all available food items in a grid layout:
+o	Each item has image, name, description, price in Philippine Peso (₱) and "Add to Cart" button.
+o	Items: Pizza, Burger, French Fries, Spaghetti, Fried Chicken, Coke Float, Coke Zero.
+o	Empty item is also included ready to fill later.
+o	Each card lifts up slightly when hovered for nice effect.
+Cart Section
+•	Initially shows message "Your cart is empty".
+•	When items are added:
+o	Shows list of items with name, price, and delete button (trash icon).
+o	Automatically calculates and displays total price.
+o	"Proceed to Order" button appears.
+Order Section
+•	Form for customer details:
+o	Full Name, Phone Number, Delivery Address — all required fields.
+o	Payment Method selection:
+	Cash on Delivery (default)
+	Card Payment — shows dropdown to select GCash, PayMaya, or PayPal
+o	Order Summary area shows what was ordered and total price.
+•	After submitting form:
+o	Form hides, success message appears with green background and check icon.
+o	Button to go back to menu.
+Feedback Section
+•	Form to collect customer opinion:
+o	Name field.
+o	Star rating system (1 to 5 stars):
+	Clicking stars turns them yellow.
+o	Comment box.
+•	After submitting:
+o	Form hides, thank you message appears.
+o	Button to return to menu.
+Contact Section
+•	Displays contact information:
+o	Email address
+o	Phone number
+o	Physical address
+•	All links are clickable.
+Footer
+•	Simple copyright text at bottom.
+________________________________________
+Part 3 – JavaScript Logic: How Everything Works
+This part controls all interactive functions.
+1. Cart System
+•	let cart = []: creates empty list to store selected items.
+addToCart(name, price)
+•	Runs when clicking "Add to Cart".
+•	Adds item name and price into cart list.
+•	Calls updateCart() to refresh display.
+removeFromCart(index)
+•	Runs when clicking trash icon.
+•	Removes specific item from cart list by its position number.
+•	Calls updateCart() to refresh display.
+updateCart()
+•	Updates cart count number in header.
+•	If cart is empty → shows "Your cart is empty" message.
+•	If has items → hides empty message, shows each item with price, calculates total.
+•	Updates total price in both cart section and order summary.
+•	Converts prices to 2 decimal places for correct currency format.
+•	Note: In current code, currency symbol shows $ but should be ₱ to match prices displayed — this can be updated easily.
+2. Order Form Handling
+•	Listens for form submit event.
+•	Stops page from reloading.
+•	Hides form, shows success message.
+•	Clears cart list and updates display so next order starts fresh.
+3. Feedback Star Rating
+•	Selects all star icons and hidden input field.
+•	When clicking a star:
+o	Stores selected rating number in hidden input.
+o	Resets all stars to gray.
+o	Turns yellow all stars up to the one clicked.
+•	When feedback form submitted:
+o	Hides form, shows thank you message.
+o	Resets stars back to gray, clears name and comment fields.
+________________________________________Overall Program Flow
+1.	Page loads → User sees header, welcome message and menu.
+2.	User browses menu → Clicks "Add to Cart" → Items appear in cart with total calculated.
+3.	User goes to Cart → Clicks "Proceed to Order" → Fills delivery details and selects payment → Submits → Success message shown.
+4.	User can go to Feedback page → Gives rating and comments → Submits → Thank you message shown.
+5.	User can view Contact page anytime for information.
+
