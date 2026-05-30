@@ -25,7 +25,7 @@
 - Our program environment had errors that it can't define the imports.
   even the syntacs and overall code is right and in proper order(Organized).
 
-  # SavorScync - Food Ordering Web App
+# SavorScync - Food Ordering Web App
 
 ## Project Title
 **SavorScync**
