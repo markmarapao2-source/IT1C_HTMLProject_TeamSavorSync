@@ -25,4 +25,61 @@
 - Our program environment had errors that it can't define the imports.
   even the syntacs and overall code is right and in proper order(Organized).
 
-  
+  # SavorScync - Food Ordering Web App
+
+## Project Title
+**SavorScync**
+
+## Project Description
+**SavorScync** is a responsive, web-based food ordering platform designed to provide a seamless experience for customers to browse menus, manage their cart, place delivery orders, and share feedback. The application features a clean, modern interface built with Tailwind CSS and vanilla JavaScript, ensuring it works smoothly across mobile, tablet, and desktop devices. All core functionalities run on the client side, making it lightweight, fast, and easy to deploy.
+
+## Features
+- ✅ **Responsive Design**: Optimized for all screen sizes from mobile to desktop
+- ✅ **Interactive Menu**: Display of food items with images, descriptions, and prices
+- ✅ **Cart Management**:
+  - Add items to cart
+  - Remove items from cart
+  - Real-time counter and total price calculation
+  - Empty cart state handling
+- ✅ **Order Placement System**:
+  - Delivery information form (name, phone, address)
+  - Payment method selection (Cash on Delivery / Card)
+  - Order summary preview
+  - Success message upon submission
+- ✅ **Feedback System**:
+  - 5-star interactive rating system
+  - Comment submission form
+  - Success confirmation
+- ✅ **Navigation**: Smooth scrolling and sticky header for easy navigation
+- ✅ **Visual Feedback**: Hover effects, transitions, and animations
+- ✅ **Contact Section**: Complete business contact information
+
+## Technologies/Libraries Used
+- **HTML5**: Structure and semantic markup
+- **Tailwind CSS v3**: Styling, responsive design, custom color palette (`#E67E22`, `#F39C12`, etc.)
+- **Font Awesome v4.7**: Icons for cart, stars, buttons, and contact details
+- **JavaScript (ES6)**:
+  - Cart logic and state management
+  - Form validation and submission handling
+  - Dynamic UI updates
+  - Interactive rating system
+- **Custom Utilities**: Smooth scroll, content visibility optimization
+
+## Installation Guide
+Follow these steps to set up the project locally:
+
+1. **Download the Project Files**
+   - Download or clone the project repository containing the main HTML file and image assets
+   - Ensure all files are kept in the same folder structure
+
+## How to Run the Program
+1. **Open the Application**
+- Navigate to the project folder
+- Double-click the `index.html` file, or
+- Right-click → Open with → Your preferred web browser (Chrome, Firefox, Edge, Safari, etc.)
+
+2. **Using a Local Server (Optional but Recommended)**
+For best performance and to avoid local file restrictions:
+- **Option A**: Use VS Code Extension
+  1. Install *Live Server* extension in Visual Studio Code
+  2. Right-click `index.html` → *Open with Live Server*
