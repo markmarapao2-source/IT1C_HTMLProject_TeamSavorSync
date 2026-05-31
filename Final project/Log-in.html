@@ -34,10 +34,10 @@
 </head>
 <body class="bg-lightOrange font-sans scroll-smooth flex items-center justify-center min-h-screen">
 
-    <!-- Main Container -->
+    
     <div class="w-full max-w-md p-6">
 
-        <!-- Logo -->
+       
         <div class="flex justify-center mb-6">
             <div class="w-[80px] h-[80px] rounded-full bg-brown flex items-center justify-center">
                 <i class="fa fa-burger text-white text-4xl"></i>
@@ -45,13 +45,13 @@
         </div>
         <h2 class="text-center text-[clamp(1.5rem,3vw,2rem)] font-bold text-darkOrange mb-8">SavorScync</h2>
 
-        <!-- Toggle Buttons -->
+       
         <div class="flex mb-6 bg-white rounded-lg p-1 shadow-md">
             <button id="loginTab" class="w-1/2 py-2 text-center font-semibold rounded-md bg-primary text-white transition">Login</button>
             <button id="registerTab" class="w-1/2 py-2 text-center font-semibold rounded-md text-gray-700 hover:bg-secondary/20 transition">Create Account</button>
         </div>
 
-        <!-- Login Form -->
+       
         <div id="loginForm" class="bg-white p-8 rounded-xl shadow-lg">
             <h3 class="text-xl font-bold text-center text-darkOrange mb-6">Login to Your Account</h3>
             
@@ -103,7 +103,7 @@
             <p id="regMsg" class="text-center text-sm mt-4 text-red-600 hidden"></p>
         </div>
 
-        <!-- Success Message -->
+        
         <div id="successMsg" class="hidden mt-8 bg-green-100 border-2 border-green-500 rounded-xl p-6 text-center">
             <i class="fa fa-check-circle text-green-600 text-4xl mb-3"></i>
             <h3 class="text-lg font-bold text-green-800 mb-2">Success!</h3>
@@ -116,7 +116,6 @@
     </div>
 
     <script>
-        // Toggle between forms
         const loginTab = document.getElementById('loginTab');
         const registerTab = document.getElementById('registerTab');
         const loginForm = document.getElementById('loginForm');
@@ -146,7 +145,7 @@
             successMsg.classList.add('hidden');
         });
 
-        // Save user data to localStorage
+       
         function registerUser() {
             const name = document.getElementById('regName').value.trim();
             const email = document.getElementById('regEmail').value.trim();
@@ -177,17 +176,17 @@
                 return;
             }
 
-            // Save new user
+            
             users.push({ name, email, password });
             localStorage.setItem('savorscync_users', JSON.stringify(users));
 
-            // Show success
+           
             successText.textContent = "Your account has been created successfully!";
             successMsg.classList.remove('hidden');
             registerForm.classList.add('hidden');
         }
 
-        // Login function
+      
         function loginUser() {
             const email = document.getElementById('loginEmail').value.trim();
             const password = document.getElementById('loginPassword').value;
@@ -200,7 +199,7 @@
                 return;
             }
 
-            // Get users from storage
+           
             let users = JSON.parse(localStorage.getItem('savorscync_users')) || [];
             const validUser = users.find(user => user.email === email && user.password === password);
 
@@ -214,7 +213,7 @@
             }
         }
 
-        // Go to login after register
+        
         function goToLogin() {
             loginTab.click();
         }
