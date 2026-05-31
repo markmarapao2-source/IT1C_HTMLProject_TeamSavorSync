@@ -34,10 +34,10 @@
 </head>
 <body class="bg-lightOrange font-sans scroll-smooth flex items-center justify-center min-h-screen">
 
-    
+   
     <div class="w-full max-w-md p-6">
 
-       
+      
         <div class="flex justify-center mb-6">
             <div class="w-[80px] h-[80px] rounded-full bg-brown flex items-center justify-center">
                 <i class="fa fa-burger text-white text-4xl"></i>
@@ -72,7 +72,7 @@
             <p id="loginMsg" class="text-center text-sm mt-4 text-red-600 hidden"></p>
         </div>
 
-        <!-- Register Form -->
+       
         <div id="registerForm" class="bg-white p-8 rounded-xl shadow-lg hidden">
             <h3 class="text-xl font-bold text-center text-darkOrange mb-6">Create New Account</h3>
             
@@ -103,7 +103,7 @@
             <p id="regMsg" class="text-center text-sm mt-4 text-red-600 hidden"></p>
         </div>
 
-        
+       
         <div id="successMsg" class="hidden mt-8 bg-green-100 border-2 border-green-500 rounded-xl p-6 text-center">
             <i class="fa fa-check-circle text-green-600 text-4xl mb-3"></i>
             <h3 class="text-lg font-bold text-green-800 mb-2">Success!</h3>
@@ -116,6 +116,7 @@
     </div>
 
     <script>
+        
         const loginTab = document.getElementById('loginTab');
         const registerTab = document.getElementById('registerTab');
         const loginForm = document.getElementById('loginForm');
@@ -145,7 +146,7 @@
             successMsg.classList.add('hidden');
         });
 
-       
+        
         function registerUser() {
             const name = document.getElementById('regName').value.trim();
             const email = document.getElementById('regEmail').value.trim();
@@ -166,7 +167,7 @@
                 return;
             }
 
-            // Check if email already exists
+           
             let users = JSON.parse(localStorage.getItem('savorscync_users')) || [];
             const emailExists = users.some(user => user.email === email);
 
@@ -176,7 +177,7 @@
                 return;
             }
 
-            
+           
             users.push({ name, email, password });
             localStorage.setItem('savorscync_users', JSON.stringify(users));
 
@@ -186,7 +187,7 @@
             registerForm.classList.add('hidden');
         }
 
-      
+       
         function loginUser() {
             const email = document.getElementById('loginEmail').value.trim();
             const password = document.getElementById('loginPassword').value;
@@ -204,9 +205,8 @@
             const validUser = users.find(user => user.email === email && user.password === password);
 
             if (validUser) {
-                successText.textContent = `Welcome back, ${validUser.name}! You are now logged in.`;
-                successMsg.classList.remove('hidden');
-                loginForm.classList.add('hidden');
+                
+                window.location.href = "Main-site.html"; 
             } else {
                 loginMsg.textContent = "Invalid email or password.";
                 loginMsg.classList.remove('hidden');
